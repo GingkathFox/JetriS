@@ -23,6 +23,7 @@ let game = class {
     constuctor() {
         this.occupiedBlocks = boardArr
         this.score = 0
+        this.loop = 0
 
         // board
         this.board;
@@ -50,24 +51,20 @@ let game = class {
     update() {
         let mino = require('./minos/I')
         let minos = require('./jetriminos')
-        let currMino = new mino(this.b, boardArr)
+        let currMino = new mino(this.b, boardArr, this.term)
         //currMino.render()
-        let y = 0
 
-        y++
-
-        this.buf = new terminalKit.ScreenBuffer( { dst: this.b, width: this.width, height: this.term.height} )
-        this.buf.clear()
+        //this.buf = new terminalKit.ScreenBuffer( { dst: this.b, width: this.width, height: this.term.height} )
+        //this.buf.clear()
         // TODO: Code that adds the current mino to `buf`
-        //this.buf.put({x: 5, y, markup: false, attr: {color: currMino.color}, newLine: true}, minos.I.up.jetriminos()/*currMino.render()*/)
-        this.buf.draw({blending: true})
+        //this.buf.put({x: 5, y: 0, markup: false, attr: {color: currMino.color}, newLine: true}, minos.I.up.jetriminos()/*currMino.render()*/)
+       // this.buf.draw({blending: true})
         currMino.update()
-        this.b.draw()
-       
+        //this.b.draw()
     }
     clear() {
-        this.b.clear()
-        this.buf.clear()
+        //this.b.clear()
+        //this.buf.clear()
     }
 }
 module.exports = game
