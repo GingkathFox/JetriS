@@ -60,7 +60,7 @@ let game = class {
         this.buf.clear()
         // TODO: Code that adds the current mino to `buf`
         //this.buf.put({x: 5, y, markup: false, attr: {color: currMino.color}, newLine: true}, minos.I.up.jetriminos()/*currMino.render()*/)
-       // this.buf.draw({blending: true})
+        this.buf.draw({blending: true})
         currMino.update()
         this.b.draw()
        
