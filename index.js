@@ -69,10 +69,6 @@ let x = 1
 
 term.on('key', (name, matches, data) => {
     switch(name) {
-        case 'a': x == 1 ? x = 1 : x -= 1; break;
-        case 'LEFT': x == 1 ? x = 1 : x -= 1; break;
-        case 'd': x == term.width - 1 ? x = term.width - 1 : x += 1; break;
-        case 'RIGHT': x == term.width - 1 ? x = term.width - 1 : x += 1; break;
         case 'q': 
             term.grabInput(false)
             game.clear()
@@ -92,16 +88,8 @@ process.on('SIGINT', () => {
 term.grabInput(true)
 
 let loop = setInterval(() => {
-    game.update(minos.randoMino().up, x, y)
+    game.update()
 }, 200)
-
-//let buf = new terminalKit.ScreenBuffer( { dst: term, width: term.width, height: term.height} )
-//let mino = minos.randoMino()
-
-
-
-//console.log(mino.randomRot())
-
 
 /*ctx.begin()
 ctx.style.line = "M"

@@ -1,4 +1,5 @@
 let mino = require('./mino')
+
 let I = class extends mino {
     constructor(board, boardArr, term) {
         super()
@@ -23,27 +24,24 @@ let I = class extends mino {
         })
         // Init the buffer
         this.buf = new this.terminalKit.ScreenBuffer( { dst: this.board, width: this.term.width, height: this.term.height, tile: true} )
-        //this.buf.put({x: 0, y: 0, markup: false, attr: {color: 'red'}, newLine: true}, this.jetrimino.up.jetriminos())
-        //console.log(this.jetrimino.up.jetriminos())
-        //this.buf.draw({blending: true})
     }
     update() { // Looped
         // check for a collision
-        this.y++
-       /* this.checkCollision()
+        // this.y++
+        //this.checkCollision()
 
         if (this.collision) {
             this.isLanded = true
         } else {
             this.y++
-        }*/
-        this.buf.put({x: this.x, y: this.y, markup: false, attr: {color: this.color}, newLine: true}, this.jetrimino.up.jetriminos())
-        this.buf.draw({blending: true})
-        console.log(this.y)
+        }
+        //this.buf.put({x: this.x, y: this.y, markup: false, attr: {color: this.color}, newLine: true}, this.jetrimino.up.jetriminos())
+        //this.buf.draw({blending: true})
+        //this.buf.vScroll()
     }
     checkCollision() {
-        /*let block = this.boardArr[this.y][this.x]
-        if (block) { // If the block is occupied
+        console.log(this.boardArr[this.y + 1][this.x])
+       /* if (block) { // If the block is occupied
             return this.collision = true // The mino has landed!
         } else {
             return this.collision = false // Keep on fallin...
